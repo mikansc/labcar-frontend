@@ -1,5 +1,7 @@
+import Botao from "./components/Botao";
+
 const App = () => {
-  return <h1>Olá, App!</h1>;
+  return <Botao titulo="Título do botão" cor="green" />;
 };
 
 export default App;
