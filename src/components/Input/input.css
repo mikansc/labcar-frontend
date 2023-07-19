@@ -1,0 +1,35 @@
+.input__input-group {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 1.5rem;
+  position: relative;
+  width: 100%;
+}
+
+.input__input-label {
+  font-family: Arial, Helvetica, sans-serif;
+  color: #000;
+  font-size: 0.75rem;
+  font-weight: 400;
+  margin-bottom: 0.25rem;
+  margin-left: 0.5rem;
+}
+
+.input__input-element {
+  border: 1px solid rgba(0, 0, 0, 0.2);
+  border-radius: 0.25rem;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 1rem;
+  /* padding: 0.5rem; */
+}
+
+.input__input-element input {
+  border: none;
+  outline: none;
+  width: 100%;
+  padding: 0.5rem;
+}
+
+input:focus .input__input-element {
+  border: 1px solid #980606;
+}
