@@ -7,7 +7,7 @@ const Input = (props) => {
         {props.etiqueta}
       </label>
       <div className="input__input-element">
-        <input id={id} type={props.tipo} onChange={props.aoMudar} />
+        <input id={props.id} type={props.tipo} onChange={props.aoMudar} />
       </div>
     </div>
   );
