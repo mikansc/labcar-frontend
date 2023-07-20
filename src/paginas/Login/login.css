@@ -1,0 +1,18 @@
+.login__titulo {
+  margin-bottom: 32px;
+}
+
+.login__conteiner {
+  width: 100%;
+  max-width: 480px;
+
+  border: 1px solid gray;
+  margin: 0 auto;
+  margin-top: 64px;
+  padding: 16px;
+}
+
+.login__form-acao {
+  display: flex;
+  justify-content: space-between;
+}
