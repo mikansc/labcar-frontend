@@ -1,17 +1,26 @@
 import "./input.css";
 
 const Input = (props) => {
-  const { label, id, ...rest } = props;
   return (
     <div className="input__input-group">
-      <label className="input__input-label" htmlFor={id}>
-        {label}
+      <label className="input__input-label" htmlFor={props.id}>
+        {props.etiqueta}
       </label>
       <div className="input__input-element">
-        <input id={id} type="text" {...rest} />
+        <input id={id} type={props.tipo} onChange={props.aoMudar} />
       </div>
     </div>
   );
 };
+
+{
+  /* <input id={id} type="text" {...rest} />; */
+}
+
+/*
+React.createElement('input', {id: id, type: 'text', onChange: ()=>{}, temErro: false, tipo: "text"})
+
+
+*/
 
 export default Input;
