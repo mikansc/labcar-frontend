@@ -1,10 +1,48 @@
-import { Link } from "react-router-dom";
+import { useState } from "react";
+import { Link, useNavigate } from "react-router-dom";
 import Botao from "../../componentes/Botao";
 import Input from "../../componentes/Input";
 
 import "./cadastro.css";
 
 const Cadastro = () => {
+  const navegar = useNavigate();
+
+  const [form, setForm] = useState({
+    nome: "",
+    email: "",
+    senha: "",
+  });
+
+  const atualizarForm = (valor, campo) => {
+    console.log(`Campo ${campo}: ${valor}`);
+
+    if (campo === "nome") {
+      setForm({ ...form, nome: valor });
+      // { nome: 'Fulano', email: '' , senha: '',  }
+    }
+
+    if (campo === "email") {
+      setForm({ ...form, email: valor });
+    }
+
+    if (campo === "senha") {
+      setForm({ ...form, senha: valor });
+    }
+  };
+
+  const enviaDadosParaBackend = () => {
+    fetch("http://localhost:3000/usuarios", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(form),
+    }).then(() => {
+      navegar("/");
+    });
+  };
+
   return (
     <section>
       <div className="cadastro__conteiner">
@@ -17,25 +55,25 @@ const Cadastro = () => {
           <Input
             etiqueta="Nome"
             id="nome"
-            aoMudar={(e) => console.log(e.target.value)}
+            aoMudar={(e) => atualizarForm(e.target.value, "nome")}
             tipo="text"
           />
           <Input
             etiqueta="Email"
             id="email"
-            aoMudar={(e) => console.log(e.target.value)}
+            aoMudar={(e) => atualizarForm(e.target.value, "email")}
             tipo="text"
           />
           <Input
             etiqueta="Senha"
             id="senha"
-            aoMudar={(e) => console.log(e.target.value)}
+            aoMudar={(e) => atualizarForm(e.target.value, "senha")}
             tipo="password"
           />
           <div className="cadastro__form-acao">
             <Botao
               aoClicar={() => {
-                alert("Clicou!!!");
+                enviaDadosParaBackend();
               }}
               tipo="button"
               titulo="Cadastrar"
@@ -50,3 +88,11 @@ const Cadastro = () => {
 };
 
 export default Cadastro;
+
+// DICA: Usar este trecho de código dentro do componente para visualizar o estado
+/*
+<p>
+  Estado:
+  <code>{JSON.stringify(form)}</code>
+</p>
+*/
