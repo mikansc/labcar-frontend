@@ -1,17 +1,7 @@
-import Botao from "./components/Botao";
-import Input from "./components/Input";
+import Login from "./paginas/Login";
 
 const App = () => {
-  return (
-    <>
-      <Botao titulo="Título do botão" cor="green" />
-      <Input
-        label="Teste"
-        id="123"
-        onChange={(e) => console.log(e.target.value)}
-      />
-    </>
-  );
+  return <Login />;
 };
 
 export default App;
