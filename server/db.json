@@ -1,4 +1,5 @@
 {
   "usuarios": [],
-  "carros": []
+  "carros": [],
+  "login": { "ok": true}
 }
