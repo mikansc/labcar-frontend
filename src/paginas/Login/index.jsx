@@ -25,15 +25,15 @@ const Login = () => {
     navegar("lista-produtos");
 
     //  ESSE CÓDIGO AQUI TÁ PARECENDO MUITO UMA FUNÇÃO DE LOGIN...
-    // fetch("http://localhost:8080/api/login", {
-    //   method: "POST",
-    //   headers: {
-    //     "Content-Type": "application/json",
-    //   },
-    //   body: JSON.stringify({ email, senha }),
-    // }).then(() => {
-    //   navegar("lista-produtos");
-    // });
+    fetch("http://localhost:3000/login", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({ email, senha }),
+    }).then(() => {
+      navegar("lista-produtos");
+    });
   };
 
   return (
