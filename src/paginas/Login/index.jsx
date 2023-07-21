@@ -22,8 +22,6 @@ const Login = () => {
       return;
     }
 
-    navegar("lista-produtos");
-
     //  ESSE CÓDIGO AQUI TÁ PARECENDO MUITO UMA FUNÇÃO DE LOGIN...
     fetch("http://localhost:3000/login", {
       method: "POST",
