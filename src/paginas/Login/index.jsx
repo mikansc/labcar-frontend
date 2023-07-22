@@ -6,8 +6,8 @@ import { useState } from "react";
 import "./login.css";
 
 const Login = () => {
-  const [email, setEmail] = useState("");
-  const [senha, setSenha] = useState("");
+  const [email, setEmail] = useState("mika@teste.com"); // usuario para testes
+  const [senha, setSenha] = useState("abcd123"); // a senha correta é abcd1234
 
   const navegar = useNavigate();
 
@@ -29,8 +29,14 @@ const Login = () => {
         "Content-Type": "application/json",
       },
       body: JSON.stringify({ email, senha }),
-    }).then(() => {
-      navegar("lista-produtos");
+    }).then((resposta) => {
+      if (resposta.ok) {
+        // "ok" é um atributo que existe na resposta do fetch
+        // portanto se não deu erro de login ...
+        navegar("lista-produtos");
+      } else {
+        alert("Dados inválidos"); // se deu erro no login
+      }
     });
   };
 
@@ -46,12 +52,14 @@ const Login = () => {
           <Input
             etiqueta="Email"
             id="email"
+            valor={email} // adicionei essa prop "valor" ao campo input
             aoMudar={(e) => setEmail(e.target.value)}
             tipo="text"
           />
           <Input
             etiqueta="Senha"
             id="senha"
+            valor={senha} // adicionei essa prop "valor" ao campo input
             aoMudar={(e) => setSenha(e.target.value)}
             tipo="password"
           />
