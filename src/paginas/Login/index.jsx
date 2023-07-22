@@ -33,7 +33,7 @@ const Login = () => {
       if (resposta.ok) {
         // "ok" é um atributo que existe na resposta do fetch
         // portanto se não deu erro de login ...
-        navegar("lista-produtos");
+        navegar("/produtos");
       } else {
         alert("Dados inválidos"); // se deu erro no login
       }
