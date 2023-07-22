@@ -50,18 +50,16 @@
 }
 
 .ListaProdutos__botao-editar {
-  display: inline-block;
-  padding: 8px 16px;
-  font-size: 0.875rem;
-  font-weight: 700;
-  text-transform: uppercase;
-  color: #fff;
-  background-color: #666;
-  border: 0;
-  border-radius: 4px;
+  background-color: rgb(237, 143, 100);
+  border: none;
+  border-radius: 3px;
+  padding: 0.5rem 2rem;
+  font-size: 0.75rem;
+  font-family: Arial, Helvetica, sans-serif;
+  color: white;
   cursor: pointer;
-  margin: 0 8px;
-  transition: all 0.2s ease-in-out;
+  box-shadow: 3px 3px rgb(0, 0, 0);
+  margin: 0 0.8rem;
 }
 
 a.ListaProdutos__botao-editar {
@@ -70,24 +68,5 @@ a.ListaProdutos__botao-editar {
 }
 
 .ListaProdutos__botao-editar:hover {
-  background-color: #333;
-}
-
-.ListaProdutos__botao-excluir {
-  display: inline-block;
-  padding: 8px 16px;
-  font-size: 0.875rem;
-  font-weight: 700;
-  text-transform: uppercase;
-  color: #fff;
-  background-color: #ff0000;
-  border: 0;
-  border-radius: 4px;
-  cursor: pointer;
-  margin: 0 8px;
-  transition: all 0.2s ease-in-out;
-}
-
-.ListaProdutos__botao-excluir:hover {
-  background-color: #cc0000;
+  background-color: rgb(255, 165, 0);
 }

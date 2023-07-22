@@ -1,9 +1,38 @@
 import { Link } from "react-router-dom";
 import Conteiner from "../../componentes/Conteiner";
 
+import { useEffect, useState } from "react";
+import Botao from "../../componentes/Botao";
 import "./listaProdutos.css";
 
 const ListaProdutos = () => {
+  // este estado vai armazenar a lista de produtos
+  const [carros, setCarros] = useState([]);
+
+  const buscarProdutos = () => {
+    // esta função vai buscar a lista de produtos no back end.
+    fetch("http://localhost:3000/carros")
+      .then((response) => response.json())
+      .then((dados) => setCarros(dados));
+  };
+
+  const apagarProduto = (id) => {
+    // primeiro, confirmamos se o usuário realmente quer apagar o produto
+    if (window.confirm("Deseja mesmo apagar este produto?")) {
+      // se ele quiser, apagamos o produto chamando o back end
+      fetch(`http://localhost:3000/carros/${id}`, {
+        method: "DELETE",
+      }).then(() => {
+        // depois de apagar o produto, atualizamos a lista de produtos
+        buscarProdutos();
+      });
+    }
+  };
+
+  useEffect(() => {
+    buscarProdutos(); // aqui chamamos a função buscarProdutos
+  }, []);
+
   return (
     <>
       <Conteiner>
@@ -13,7 +42,6 @@ const ListaProdutos = () => {
           <table className="ListaProdutos__tabela">
             <thead className="ListaProdutos__tabela-head">
               <tr className="ListaProdutos__tabela-row">
-                <th className="ListaProdutos__tabela-head-cell">Nome</th>
                 <th className="ListaProdutos__tabela-head-cell">Modelo</th>
                 <th className="ListaProdutos__tabela-head-cell">Marca</th>
                 <th className="ListaProdutos__tabela-head-cell">Ano</th>
@@ -21,20 +49,26 @@ const ListaProdutos = () => {
               </tr>
             </thead>
             <tbody className="ListaProdutos__tabela-body">
-              <tr className="ListaProdutos__tabela-row">
-                <td className="ListaProdutos__tabela-cell">Uno</td>
-                <td className="ListaProdutos__tabela-cell">1.0</td>
-                <td className="ListaProdutos__tabela-cell">Fiat</td>
-                <td className="ListaProdutos__tabela-cell">2010</td>
-                <td className="ListaProdutos__tabela-cell">
-                  <Link className="ListaProdutos__botao-editar" to="editar/1">
-                    Editar
-                  </Link>
-                  <button className="ListaProdutos__botao-excluir">
-                    Excluir
-                  </button>
-                </td>
-              </tr>
+              {carros.map((carro) => (
+                <tr key={carro.id} className="ListaProdutos__tabela-row">
+                  <td className="ListaProdutos__tabela-cell">{carro.modelo}</td>
+                  <td className="ListaProdutos__tabela-cell">{carro.marca}</td>
+                  <td className="ListaProdutos__tabela-cell">{carro.ano}</td>
+                  <td className="ListaProdutos__tabela-cell">
+                    <Link
+                      className="ListaProdutos__botao-editar"
+                      to={`editar/${carro.id}`}
+                    >
+                      Editar
+                    </Link>
+                    <Botao
+                      aoClicar={() => apagarProduto(carro.id)}
+                      className="ListaProdutos__botao-excluir"
+                      titulo="Excluir"
+                    />
+                  </td>
+                </tr>
+              ))}
             </tbody>
           </table>
         </div>
