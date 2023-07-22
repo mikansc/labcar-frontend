@@ -1,0 +1,10 @@
+.Conteiner__content {
+  margin-top: 16px;
+  border: 1px solid #ddd;
+  background-color: #fff;
+  padding: 16px;
+
+  width: 100%;
+  max-width: 980px;
+  margin: 0 auto;
+}
