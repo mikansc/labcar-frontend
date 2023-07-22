@@ -11,6 +11,9 @@ const Menu = () => {
         <li className="Menu__nav-list-item">
           <Link to="novo">Cadastrar produto</Link>
         </li>
+        <li className="Menu__nav-list-item">
+          <Link to="/">Sair</Link>
+        </li>
       </ul>
     </nav>
   );
