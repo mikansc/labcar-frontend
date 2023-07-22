@@ -15,7 +15,8 @@ server.post("/login", (req, res) => {
   if (email === "" || senha === "") {
     res.status(400).json({ message: "Email and password are required" });
   }
-  const user = server.db.get("users").find({ email, senha }).value();
+  const user = server.db.get("usuarios").find({ email, senha }).value();
+  console.log(user);
   if (user) {
     res.json({ id: user.id, email: user.email, name: user.name });
   } else {
