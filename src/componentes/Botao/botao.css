@@ -1,0 +1,15 @@
+.botao {
+  background-color: cornflowerblue;
+  border: none;
+  border-radius: 3px;
+  padding: 0.5rem 2rem;
+  font-size: 0.75rem;
+  font-family: Arial, Helvetica, sans-serif;
+  color: white;
+  cursor: pointer;
+  box-shadow: 3px 3px rgb(0, 0, 0);
+}
+
+.botao:hover {
+  background-color: rgb(102, 102, 240);
+}

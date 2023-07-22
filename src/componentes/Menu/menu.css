@@ -1,0 +1,24 @@
+.Menu__nav {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  padding: 16px 16px;
+  height: 100%;
+  background-color: #fff;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  margin-bottom: 16px;
+}
+
+.Menu__nav-list {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  height: 100%;
+}
+
+.Menu__nav-list-item {
+  margin-left: 16px;
+}

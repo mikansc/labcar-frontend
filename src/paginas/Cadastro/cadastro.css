@@ -1,0 +1,18 @@
+.cadastro__titulo {
+  margin-bottom: 32px;
+}
+
+.cadastro__conteiner {
+  width: 100%;
+  max-width: 480px;
+
+  border: 1px solid gray;
+  margin: 0 auto;
+  margin-top: 64px;
+  padding: 16px;
+}
+
+.cadastro__form-acao {
+  display: flex;
+  justify-content: space-between;
+}
