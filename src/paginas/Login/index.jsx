@@ -6,7 +6,7 @@ import { useState } from "react";
 import "./login.css";
 
 const Login = () => {
-  const [email, setEmail] = useState("mika@teste.com"); // usuario para testes
+  const [email, setEmail] = useState("teste@teste.com"); // usuario para testes
   const [senha, setSenha] = useState("abcd123"); // a senha correta é abcd1234
 
   const navegar = useNavigate();
