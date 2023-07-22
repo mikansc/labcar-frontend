@@ -1,8 +1,8 @@
 {
   "usuarios": [
     {
-      "nome": "Michael Nascimento",
-      "email": "mika@teste.com",
+      "nome": "Usuário Teste",
+      "email": "teste@teste.com",
       "senha": "abcd1234",
       "id": 1
     }
